@@ -1,6 +1,11 @@
 # marks.nvim
+
 A better user experience for interacting with and manipulating Vim marks.
 Requires Neovim 0.5+.
+
+> [!WARNING]
+> This fork is no longer mainatined. I suggest switching to
+> [2KAbhishek/markit.nvim](https://github.com/2KAbhishek/markit.nvim) as I did.
 
 ![](../assets/marks-demo.gif)
 
@@ -15,13 +20,15 @@ Screenshot:
 - cycle between marks
 - preview marks in floating windows
 - extract marks to quickfix/location list
-- set bookmarks with sign/virtual text annotations for quick navigation across buffers
+- set bookmarks with sign/virtual text annotations for quick navigation across
+  buffers
 
 ## Installation
 
 I recommend you use your favorite vim plugin manager, like vim-plug, or packer.
 
-For example, using lazy.nvim, you would add the following line to the `spec` field of setup:
+For example, using lazy.nvim, you would add the following line to the `spec`
+field of setup:
 
 ```Lua
 {
@@ -30,6 +37,7 @@ For example, using lazy.nvim, you would add the following line to the `spec` fie
   opts = {},
 }
 ```
+
 of if you are using vim-plug:
 
 `Plug 'chentoast/marks.nvim'`
@@ -78,37 +86,40 @@ require'marks'.setup {
 }
 ```
 
-See `:help marks-setup` for all of the keys that can be passed to the setup function.
+See `:help marks-setup` for all of the keys that can be passed to the setup
+function.
 
 ## Mappings
 
 The following default mappings are included:
 
 ```
-    mx              Set mark x
-    m,              Set the next available alphabetical (lowercase) mark
-    m;              Toggle the next available mark at the current line
-    Mx              Toggle a inputed mark at the current line
-    dmx             Delete mark x
-    dm-             Delete all marks on the current line
-    dm<space>       Delete all marks in the current buffer
-    m]              Move to next mark
-    m[              Move to previous mark
-    m:              Preview mark. This will prompt you for a specific mark to
-                    preview; press <cr> to preview the next mark.
-                    
-    m[0-9]          Add a bookmark from bookmark group[0-9].
-    dm[0-9]         Delete all bookmarks from bookmark group[0-9].
-    m}              Move to the next bookmark having the same type as the bookmark under
-                    the cursor. Works across buffers.
-    m{              Move to the previous bookmark having the same type as the bookmark under
-                    the cursor. Works across buffers.
-    dm=             Delete the bookmark under the cursor.
+mx              Set mark x
+m,              Set the next available alphabetical (lowercase) mark
+m;              Toggle the next available mark at the current line
+Mx              Toggle a inputed mark at the current line
+dmx             Delete mark x
+dm-             Delete all marks on the current line
+dm<space>       Delete all marks in the current buffer
+m]              Move to next mark
+m[              Move to previous mark
+m:              Preview mark. This will prompt you for a specific mark to
+                preview; press <cr> to preview the next mark.
+                
+m[0-9]          Add a bookmark from bookmark group[0-9].
+dm[0-9]         Delete all bookmarks from bookmark group[0-9].
+m}              Move to the next bookmark having the same type as the bookmark under
+                the cursor. Works across buffers.
+m{              Move to the previous bookmark having the same type as the bookmark under
+                the cursor. Works across buffers.
+dm=             Delete the bookmark under the cursor.
 ```
 
-Set `default_mappings = false` in the setup function if you don't want to have these mapped.
+Set `default_mappings = false` in the setup function if you don't want to have
+these mapped.
 
-You can change the keybindings by setting the `mapping` table in the setup function:
+You can change the keybindings by setting the `mapping` table in the setup
+function:
 
 ```lua
 require'marks'.setup {
@@ -153,7 +164,8 @@ The following keys are available to be passed to the mapping table:
                          above the bookmark. Requires neovim 0.6+ and is not mapped by default.
 ```
 
-marks.nvim also provides a list of `<Plug>` mappings for you, in case you want to map things via vimscript. The list of provided mappings are:
+marks.nvim also provides a list of `<Plug>` mappings for you, in case you want
+to map things via vimscript. The list of provided mappings are:
 
 ```
 <Plug>(Marks-set)
@@ -192,7 +204,7 @@ marks.nvim defines the following highlight groups:
 marks.nvim also defines the following commands:
 
 `:MarksToggleSigns[ buffer]` Toggle signs globally. Also accepts an optional
-  buffer number to toggle signs for that buffer only.
+buffer number to toggle signs for that buffer only.
 
 `:MarksListBuf` Fill the location list with all marks in the current buffer.
 
@@ -200,9 +212,11 @@ marks.nvim also defines the following commands:
 
 `:MarksListAll` Fill the location list with all marks in all open buffers.
 
-`:BookmarksList group_number` Fill the location list with all bookmarks of group "group_number".
+`:BookmarksList group_number` Fill the location list with all bookmarks of group
+"group_number".
 
-`:BookmarksListAll` Fill the location list with all bookmarks, across all groups.
+`:BookmarksListAll` Fill the location list with all bookmarks, across all
+groups.
 
 There are also corresponding commands for those who prefer the quickfix list:
 
